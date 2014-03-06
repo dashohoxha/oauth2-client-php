@@ -36,3 +36,14 @@ $oauth2_clients['server-side'] = array(
   'redirect_uri' => $redirect_uri,
 );
 
+// Google
+$oauth2_clients['google'] = array(
+  'token_endpoint' => 'https://accounts.google.com/o/oauth2/auth',
+  'auth_flow' => 'server-side',
+  'client_id' => '827835017427-h1ad5e20v14nbuq12da8sjglagjb7gkm.apps.googleusercontent.com',
+  'client_secret' => 'svEm4UIPCJaJpIu6pO_Pw2zj',
+  'authorization_endpoint' => 'https://accounts.google.com/o/oauth2/auth',
+  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'scope' => 'profile',
+);
+
