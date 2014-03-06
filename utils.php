@@ -13,7 +13,7 @@ define('DEBUG', true);
  * Dump the content of a variable into a log file (used for debugging).
  */
 function var_log($var, $label ='') {
-  if (!defined('DEBUG'))  return;
+  if (!DEBUG)  return;
 
   $file = '/tmp/php.log';
   $content = "\n==> $label: " . print_r($var, true);
@@ -37,7 +37,7 @@ function get_current_full_url() {
 /**
  * Log the content of the request and session for debugging.
  */
-if (defined('DEBUG')) {
+if (DEBUG) {
   var_log('', get_current_full_url());
   var_log($_REQUEST, '$_REQUEST');
   if (isset($_SESSION['oauth2_client'])) {

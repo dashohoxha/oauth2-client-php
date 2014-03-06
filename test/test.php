@@ -1,4 +1,9 @@
 <?php
+if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
+  highlight_file(__FILE__);
+  exit;
+}
+
 include_once('../oauth2_client.php');
 include_once('clients.php');
 
@@ -11,14 +16,14 @@ $oauth2_client = new OAuth2\Client(
 
 try {
   $access_token = $oauth2_client->getAccessToken();
-  print 'access_token=' . $access_token;
+  print "access_token = <strong>$access_token</strong>";
 }
 catch (Exception $e) {
   //error_log('Error: ' . $e->getMessage());
   var_log($e->getMessage(), 'Exception message');
   var_log($e, 'Exception');
-  print 'Error: ' . $e->getMessage();
-  print '<xmp>';  print_r($e);  print '</xmp>';
 }
 
 //session_destroy();
+
+

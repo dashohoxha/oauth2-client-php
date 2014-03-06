@@ -53,7 +53,8 @@ This library is a complement to the library [[https://github.com/bshaffer/oauth2
   }
   #+END_EXAMPLE
 
-  For more usage details check the tests.
+  For more usage details check the tests. The tests can also be run
+  from here: https://test1.l10n.org.al/oauth2-client-php/
 
   The only thing that oauth2_client does is to get an access_token
   from the oauth2 server, so that it can be used for accessing web

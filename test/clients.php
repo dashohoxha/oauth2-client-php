@@ -1,5 +1,10 @@
 <?php
-$server_url = 'https://dev.l10n.org.xx';
+if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
+  highlight_file(__FILE__);
+  exit;
+}
+
+$server_url = 'https://test1.l10n.org.al';
 
 // user-password flow
 $oauth2_clients['user-password'] = array(
@@ -30,3 +35,4 @@ $oauth2_clients['server-side'] = array(
   'authorization_endpoint' => $server_url . '/oauth2/authorize',
   'redirect_uri' => $redirect_uri,
 );
+
