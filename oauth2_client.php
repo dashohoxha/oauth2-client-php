@@ -37,6 +37,11 @@ class Client {
    *  - auth_flow :: server-side | client-credentials | user-password
    *  - client_id :: Client ID, as registered on the oauth2 server
    *  - client_secret :: Client secret, as registered on the oauth2 server
+   *  - client_auth :: Client authorization type (data | header). When 'data'
+   *       then client_id and client_secret are passed as data fields.
+   *       When 'header', they are passed with a header like:
+   *         Authorization: Basic baze64_encode('client_id:secret_id')
+   *       Optional, default is 'header'.
    *  - token_endpoint :: something like:
    *       https://oauth2_server.example.org/oauth2/token
    *  - authorization_endpoint :: somethig like:
@@ -57,6 +62,7 @@ class Client {
     'scope' => NULL,
     'username' => NULL,
     'password' => NULL,
+    'client_auth' => 'header',
   );
 
   /**
@@ -356,9 +362,16 @@ class Client {
       'data' => $data,
       'headers' => array(
         'Content-Type' => 'application/x-www-form-urlencoded',
-        'Authorization' => 'Basic ' . base64_encode("$client_id:$client_secret"),
+        //'Authorization' => 'Basic ' . base64_encode("$client_id:$client_secret"),
       ),
     );
+    if ($this->params['client_auth'] == 'data') {
+      $options['data']['client_id'] = $client_id;
+      $options['data']['client_secret'] = $client_secret;
+    }
+    else {
+      $options['headers']['Authorization'] = 'Basic ' . base64_encode("$client_id:$client_secret");
+    }
     $result = http_request($token_endpoint, $options);
     if ($result === FALSE) {
       throw new \Exception('Failed to get token.');
