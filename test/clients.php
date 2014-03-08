@@ -36,7 +36,15 @@ $oauth2_clients['server-side'] = array(
   'redirect_uri' => $redirect_uri,
 );
 
-// Google
+/**
+ * Google
+ *
+ * Create a new client at:
+ * https://console.developers.google.com/project/827835017427/apiui/credential
+ * and set
+ * Redirect URIs: https://test1.l10n.org.al/oauth2-client-php/authorized.php
+ * Javascript Origins: https://test1.l10n.org.al
+ */
 $oauth2_clients['google'] = array(
   'token_endpoint' => 'https://accounts.google.com/o/oauth2/token',
   'auth_flow' => 'server-side',
