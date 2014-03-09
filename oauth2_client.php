@@ -56,13 +56,14 @@ class Client {
     'auth_flow' => NULL,
     'client_id' => NULL,
     'client_secret' => NULL,
+    'client_auth' => 'header',
     'token_endpoint' => NULL,
     'authorization_endpoint' => NULL,
     'redirect_uri' => NULL,
     'scope' => NULL,
     'username' => NULL,
     'password' => NULL,
-    'client_auth' => 'header',
+    'provider' => NULL,
   );
 
   /**
@@ -372,9 +373,26 @@ class Client {
     else {
       $options['headers']['Authorization'] = 'Basic ' . base64_encode("$client_id:$client_secret");
     }
-    $result = http_request($token_endpoint, $options);
-    if ($result === FALSE) {
-      throw new \Exception('Failed to get token.');
+    if ($this->params['provider'] == 'facebook'
+       and $data['grant_type'] == 'authorization_code') {
+      // It has to be done differently for Facebook,
+      // because it does not return a json response.
+      $result = http_request($token_endpoint, $options, $json_decode = false);
+      $response_params = array();
+      parse_str($result, $response_params);
+      if (!isset($response_params['access_token'])) {
+        throw new \Exception('Failed to get token.');
+      }
+      return array(
+        'access_token' => $response_params['access_token'],
+        'expires_in' => $response_params['expires'],
+      );
+    }
+    else {
+      $result = http_request($token_endpoint, $options);
+      if ($result === FALSE) {
+        throw new \Exception('Failed to get token.');
+      }
     }
 
     return $result;

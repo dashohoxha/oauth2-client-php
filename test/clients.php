@@ -56,3 +56,15 @@ $oauth2_clients['google'] = array(
   'scope' => 'profile',
 );
 
+$oauth2_clients['facebook'] = array(
+  'token_endpoint' => 'https://graph.facebook.com/oauth/access_token',
+  'auth_flow' => 'server-side',
+  'client_id' => '621829541216004',
+  'client_secret' => '21caae0fd296df745c1834b6db091248',
+  'client_auth' => 'data',
+  'authorization_endpoint' => 'https://www.facebook.com/dialog/oauth',
+  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'scope' => 'user_about_me',
+  'provider' => 'facebook',
+);
+

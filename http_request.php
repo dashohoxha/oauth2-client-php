@@ -2,7 +2,7 @@
 /**
  * Function for making http requests.
  */
-function http_request($url, $options =array()) {
+function http_request($url, $options =array(), $json_decode =true) {
   // debug
   var_log('', "--------------- start http_request ---------------------");
   var_log($url, 'URL');
@@ -15,6 +15,7 @@ function http_request($url, $options =array()) {
       $header .= "$name: $value\r\n";
     }
   }
+  $header .= "Accept: application/json\r\n";
 
   // create the context options
   if (isset($options['method']) and ($options['method'] == 'POST')) {
@@ -48,7 +49,9 @@ function http_request($url, $options =array()) {
     throw new Exception($error_msg);
   }
 
-  $result = json_decode($result, true);
+  if ($json_decode) {
+    $result = json_decode($result, true);
+  }
 
   // debug
   var_log($result, 'RESULT');
