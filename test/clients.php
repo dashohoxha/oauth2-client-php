@@ -56,6 +56,11 @@ $oauth2_clients['google'] = array(
   'scope' => 'profile',
 );
 
+/**
+ * Facebook
+ *
+ * Create a new application at: https://developers.facebook.com/apps
+ */
 $oauth2_clients['facebook'] = array(
   'token_endpoint' => 'https://graph.facebook.com/oauth/access_token',
   'auth_flow' => 'server-side',
@@ -67,4 +72,23 @@ $oauth2_clients['facebook'] = array(
   'scope' => 'user_about_me',
   'provider' => 'facebook',
 );
+
+/**
+ * LinkedIn
+ *
+ * See: https://developer.linkedin.com/documents/authentication
+ * and: https://developer.linkedin.com/documents/code-samples
+ */
+$oauth2_clients['linkedin'] = array(
+  'token_endpoint' => 'https://www.linkedin.com/uas/oauth2/accessToken',
+  'auth_flow' => 'server-side',
+  'client_id' => '77msoa2400jp42',
+  'client_secret' => 'FcGVGCOeYTaDI1c2',
+  'client_auth' => 'data',
+  'authorization_endpoint' => 'https://www.linkedin.com/uas/oauth2/authorization',
+  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'scope' => 'r_basicprofile',
+);
+
+// twitter does not support oauth2
 
