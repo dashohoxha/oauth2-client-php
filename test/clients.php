@@ -4,7 +4,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
   exit;
 }
 
-$server_url = 'https://test1.l10n.org.al';
+$server_url = 'https://btranslator.net';
 
 // user-password flow
 $oauth2_clients['user-password'] = array(
@@ -42,8 +42,8 @@ $oauth2_clients['server-side'] = array(
  * Create a new client at:
  * https://console.developers.google.com/project/827835017427/apiui/credential
  * and set
- * Redirect URIs: https://test1.l10n.org.al/oauth2-client-php/authorized.php
- * Javascript Origins: https://test1.l10n.org.al
+ * Redirect URIs: https://btranslator.net/oauth2-client-php/authorized.php
+ * Javascript Origins: https://btranslator.net
  */
 $oauth2_clients['google'] = array(
   'token_endpoint' => 'https://accounts.google.com/o/oauth2/token',
@@ -52,7 +52,7 @@ $oauth2_clients['google'] = array(
   'client_secret' => 'svEm4UIPCJaJpIu6pO_Pw2zj',
   'client_auth' => 'data',
   'authorization_endpoint' => 'https://accounts.google.com/o/oauth2/auth',
-  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'redirect_uri' => 'https://btranslator.net/oauth2-client-php/authorized.php',
   'scope' => 'profile',
 );
 
@@ -68,7 +68,7 @@ $oauth2_clients['facebook'] = array(
   'client_secret' => '21caae0fd296df745c1834b6db091248',
   'client_auth' => 'data',
   'authorization_endpoint' => 'https://www.facebook.com/dialog/oauth',
-  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'redirect_uri' => 'https://btranslator.net/oauth2-client-php/authorized.php',
   'scope' => 'user_about_me',
   'provider' => 'facebook',
 );
@@ -86,7 +86,7 @@ $oauth2_clients['linkedin'] = array(
   'client_secret' => 'FcGVGCOeYTaDI1c2',
   'client_auth' => 'data',
   'authorization_endpoint' => 'https://www.linkedin.com/uas/oauth2/authorization',
-  'redirect_uri' => 'https://test1.l10n.org.al/oauth2-client-php/authorized.php',
+  'redirect_uri' => 'https://btranslator.net/oauth2-client-php/authorized.php',
   'scope' => 'r_basicprofile',
 );
 
