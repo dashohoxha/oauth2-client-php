@@ -4,7 +4,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
   exit;
 }
 
-$server_url = 'https://btranslator.net';
+$server_url = 'https://dev.btranslator.org';
 
 // user-password flow
 $oauth2_clients['user-password'] = array(
@@ -64,8 +64,8 @@ $oauth2_clients['google'] = array(
 $oauth2_clients['facebook'] = array(
   'token_endpoint' => 'https://graph.facebook.com/oauth/access_token',
   'auth_flow' => 'server-side',
-  'client_id' => '621829541216004',
-  'client_secret' => '21caae0fd296df745c1834b6db091248',
+  'client_id' => '751156001654122',
+  'client_secret' => '55e026a2707d62fdebcc2df9901311c1',
   'client_auth' => 'data',
   'authorization_endpoint' => 'https://www.facebook.com/dialog/oauth',
   'redirect_uri' => 'https://btranslator.net/oauth2-client-php/authorized.php',
