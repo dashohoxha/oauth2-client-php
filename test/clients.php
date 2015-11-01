@@ -4,7 +4,7 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
   exit;
 }
 
-$server_url = 'https://dev.btranslator.org';
+$server_url = 'http://dev.btranslator.org';
 
 // user-password flow
 $oauth2_clients['user-password'] = array(
